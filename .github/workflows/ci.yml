@@ -65,8 +65,8 @@ jobs:
             arm64) platform='arm64v8' ;;
             arm/v7) platform='arm32v7' ;;
           esac
-          tags=$(echo ${{ matrix.tags }} | awk 'BEGIN{FS=OFS=","} NR==1{for (i=1;i<=NF;i++) $i="shivammathur/node:"$i} 1')
-          ptags=$(echo ${{ matrix.tags }} | awk -v platform="$platform" 'BEGIN{FS=OFS=","} NR==1{for (i=1;i<=NF;i++) $i="shivammathur/node:"$i"-"platform} 1')
+          tags=$(echo ${{ matrix.tags }} | awk 'BEGIN{FS=OFS=","} NR==1{for (i=1;i<=NF;i++) $i="mmachatschek/node:"$i} 1')
+          ptags=$(echo ${{ matrix.tags }} | awk -v platform="$platform" 'BEGIN{FS=OFS=","} NR==1{for (i=1;i<=NF;i++) $i="mmachatschek/node:"$i"-"platform} 1')
           key=$(echo -n "$tags $ptags" | openssl dgst -sha256 | cut -d ' ' -f 2)
           multi='linux/amd64,linux/arm/v7,linux/arm64'
           [ ! "${{ matrix.file }}" = "focal" ] && multi="linux/386,$multi"

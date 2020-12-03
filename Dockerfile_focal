@@ -79,14 +79,38 @@ RUN if [ "$type" = "full" ]; then set -ex \
       && cp -r /etc/apt/sources.list.d /etc/apt/sources.list.d.save \
       && for v in 5.6 7.0 7.1 7.2 7.3 7.4 8.0; do \
            DEBIAN_FRONTEND=noninteractive apt-get install -y php"$v" \
-           php"$v"-dev \
+           php"$v"-amqp \
+           php"$v"-apcu \
+           php"$v"-bcmath \
+           php"$v"-bz2 \
            php"$v"-curl \
-           php"$v"-mbstring \
-           php"$v"-xml \
+           php"$v"-dba \
+           php"$v"-dev \
+           php"$v"-enchant \
+           php"$v"-gd \
+           php"$v"-gmp \
+           php"$v"-igbinary \
+           php"$v"-imap \
+           php"$v"-interbase \
            php"$v"-intl \
+           php"$v"-ldap \
+           php"$v"-mbstring \
+           php"$v"-memcache \
+           php"$v"-memcached \
+           php"$v"-msgpack \
            php"$v"-mysql \
+           php"$v"-odbc \
            php"$v"-pgsql \
+           php"$v"-pspell \
+           php"$v"-redis \
+           php"$v"-snmp \
+           php"$v"-soap \
+           php"$v"-sqlite3 \
+           php"$v"-tidy \
+           php"$v"-xml \
+           php"$v"-yaml \
            php"$v"-zip \
+           php"$v"-zmq \
            php-xdebug; \
          done \
       && rm -rf /var/lib/apt/lists/* \
